@@ -12,26 +12,26 @@
                         Escolha
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                        <li><a class="dropdown-item" href="#">Exercício 01</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 02</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 03</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 04</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 05</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 06</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 07</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 08</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 09</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 10</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 11</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 12</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 13</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 14</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 15</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 16</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 17</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 18</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 19</a></li>
-                        <li><a class="dropdown-item" href="#">Exercício 20</a></li>
+                        <li><a class="dropdown-item" href="exercicio_01.php">Exercício 01</a></li>
+                        <li><a class="dropdown-item" href="exercicio_02.php">Exercício 02</a></li>
+                        <li><a class="dropdown-item" href="exercicio_03.php">Exercício 03</a></li>
+                        <li><a class="dropdown-item" href="exercicio_04.php">Exercício 04</a></li>
+                        <li><a class="dropdown-item" href="exercicio_05.php">Exercício 05</a></li>
+                        <li><a class="dropdown-item" href="exercicio_06.php">Exercício 06</a></li>
+                        <li><a class="dropdown-item" href="exercicio_07.php">Exercício 07</a></li>
+                        <li><a class="dropdown-item" href="exercicio_08.php">Exercício 08</a></li>
+                        <li><a class="dropdown-item" href="exercicio_09.php">Exercício 09</a></li>
+                        <li><a class="dropdown-item" href="exercicio_10.php">Exercício 10</a></li>
+                        <li><a class="dropdown-item" href="exercicio_11.php">Exercício 11</a></li>
+                        <li><a class="dropdown-item" href="exercicio_12.php">Exercício 12</a></li>
+                        <li><a class="dropdown-item" href="exercicio_13.php">Exercício 13</a></li>
+                        <li><a class="dropdown-item" href="exercicio_14.php">Exercício 14</a></li>
+                        <li><a class="dropdown-item" href="exercicio_15.php">Exercício 15</a></li>
+                        <li><a class="dropdown-item" href="exercicio_16.php">Exercício 16</a></li>
+                        <li><a class="dropdown-item" href="exercicio_17.php">Exercício 17</a></li>
+                        <li><a class="dropdown-item" href="exercicio_18.php">Exercício 18</a></li>
+                        <li><a class="dropdown-item" href="exercicio_19.php">Exercício 19</a></li>
+                        <li><a class="dropdown-item" href="exercicio_20.php">Exercício 20</a></li>
                     </ul>
                 </li>
             </ul>
