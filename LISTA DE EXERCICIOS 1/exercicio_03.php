@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercício 01 - Soma</title>
+    <title>Exercício 03 - Multiplicação</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -12,7 +12,7 @@
     <?php include "cabecalho.php"; ?>
 
     <div class="container py-3">
-        <h1>Exercício 01 - Soma</h1>
+        <h1>Exercício 03 - Multiplicação</h1>
         <form method="post">
             <div class="mb-3">
                 <label for="n1" class="form-label">Número 1</label>
@@ -28,8 +28,8 @@
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $n1 = $_POST["n1"];
                 $n2 = $_POST["n2"];
-                $soma = $n1 + $n2;
-                echo "<p>Resultado da soma: $soma</p>";
+                $multiplicacao = $n1 * $n2;
+                echo "<p>Resultado da multiplicação: $multiplicacao</p>";
             }
             ?>
 
