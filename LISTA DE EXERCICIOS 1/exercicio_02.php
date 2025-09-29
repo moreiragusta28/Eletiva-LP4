@@ -29,7 +29,7 @@
                 $n1 = $_POST["n1"];
                 $n2 = $_POST["n2"];
                 $subtracao = $n1 - $n2;
-                echo "<p>Resultado da soma: $subtracao</p>";
+                echo "<p>Resultado da subtração: $subtracao</p>";
             }
             ?>
 
