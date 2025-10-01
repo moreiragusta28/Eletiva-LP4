@@ -1,46 +1,31 @@
-<!doctype html>
-<html lang="pt-BR">
+<?php include "cabecalho.php"; ?>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercício 18 - Juros Compostos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<div class="container py-3">
+    <h1>Exercício 18 - Juros Compostos</h1>
+    <form method="post">
+        <div class="mb-3">
+            <label for="c1" class="form-label">Capital</label>
+            <input type="number" id="c1" name="c1" class="form-control" required="" wfd-id="id37">
+        </div>
+        <div class="mb-3">
+            <label for="t1" class="form-label">Taxa</label>
+            <input type="number" id="t1" name="t1" class="form-control" required="" wfd-id="id38">
+        </div>
+        <div class="mb-3">
+            <label for="p1" class="form-label">Período</label>
+            <input type="number" id="p1" name="p1" class="form-control" required="">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
 
-<body>
-    <?php include "cabecalho.php"; ?>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $c1 = $_POST["c1"];
+        $t1 = $_POST["t1"];
+        $p1 = $_POST["p1"];
+        $calculo = ($c1 * (1 + $t1 / 100) ** $p1);
+        echo "<p>O valor dos juros compostos é: R$ " . number_format($calculo, 2) . "</p>"; //usando o .number_format(). para deixar com dois digitos depois da virgula
+    }
 
-    <div class="container py-3">
-        <h1>Exercício 18 - Juros Compostos</h1>
-        <form method="post">
-            <div class="mb-3">
-                <label for="c1" class="form-label">Capital</label>
-                <input type="number" id="c1" name="c1" class="form-control" required="" wfd-id="id37">
-            </div>
-            <div class="mb-3">
-                <label for="t1" class="form-label">Taxa</label>
-                <input type="number" id="t1" name="t1" class="form-control" required="" wfd-id="id38">
-            </div>
-            <div class="mb-3">
-                <label for="p1" class="form-label">Período</label>
-                <input type="number" id="p1" name="p1" class="form-control" required="">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $c1 = $_POST["c1"];
-                $t1 = $_POST["t1"];
-                $p1 = $_POST["p1"];
-                $calculo = ($c1 * (1 + $t1 / 100) ** $p1);
-                echo "<p>O valor dos juros compostos é: R$ ".number_format($calculo, 2)."</p>"; //usando o .number_format(). para deixar com dois digitos depois da virgula
-            }
-            ?>
-
-        </form>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-    </div>
-</body>
-
-</html>
+    include "rodape.php";
+    ?>
