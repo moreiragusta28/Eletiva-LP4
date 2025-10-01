@@ -23,16 +23,16 @@
                             Escolha
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                            <li><a class="dropdown-item" href="eexercicio_01.php">Exercício 01</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_02.php">Exercício 02</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_03.php">Exercício 03</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_04.php">Exercício 04</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_05.php">Exercício 05</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_06.php">Exercício 06</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_07.php">Exercício 07</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_08.php">Exercício 08</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_09.php">Exercício 09</a></li>
-                            <li><a class="dropdown-item" href="eexercicio_10.php">Exercício 10</a></li>
+                            <li><a class="dropdown-item" href="exercicio_01.php">Exercício 01</a></li>
+                            <li><a class="dropdown-item" href="exercicio_02.php">Exercício 02</a></li>
+                            <li><a class="dropdown-item" href="exercicio_03.php">Exercício 03</a></li>
+                            <li><a class="dropdown-item" href="exercicio_04.php">Exercício 04</a></li>
+                            <li><a class="dropdown-item" href="exercicio_05.php">Exercício 05</a></li>
+                            <li><a class="dropdown-item" href="exercicio_06.php">Exercício 06</a></li>
+                            <li><a class="dropdown-item" href="exercicio_07.php">Exercício 07</a></li>
+                            <li><a class="dropdown-item" href="exercicio_08.php">Exercício 08</a></li>
+                            <li><a class="dropdown-item" href="exercicio_09.php">Exercício 09</a></li>
+                            <li><a class="dropdown-item" href="exercicio_10.php">Exercício 10</a></li>
                         </ul>
                     </li>
                 </ul>
