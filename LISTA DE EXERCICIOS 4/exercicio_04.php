@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $produtos[$nome] = $preco_final;
     }
 
-    ksort($produtos);
+    asort($produtos);
 
     echo "<p>Lista de Produtos</p>";
     foreach ($produtos as $nome => $preco) {
