@@ -2,20 +2,21 @@
     require("cabecalho.php");
     require("conexao.php");
 
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $nome = $_POST['nome'];
 
-        try{
+        try {
             $stmt = $pdo->prepare("INSERT INTO cargo (nome) VALUES (?)");
 
-            if($stmt->execute([$nome])){
+            if ($stmt->execute([$nome])) {
                 header('location: cargos.php?cadastro=true');
+                exit;
             } else {
                 header('location: cargos.php?cadastro=false');
+                exit;
             }
-
-        }catch(Exception $e){
-            echo "Erro: ".$e->getMessage();
+        } catch (Exception $e) {
+            echo "<p class='text-danger'>Erro: " . $e->getMessage() . "</p>";
         }
     }
 ?>
