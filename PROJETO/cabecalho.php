@@ -1,7 +1,7 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['acesso']))
-    header('location: index.php');
+session_start();
+if (!isset($_SESSION['acesso']))
+  header('location: index.php');
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -13,7 +13,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     @media print {
-      .no-print{
+      .no-print {
         display: none !important;
       }
     }
@@ -39,8 +39,11 @@
               Cadastros
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdown2">
-              <li><a class="dropdown-item" href="categorias.php">Categorias de Produtos</a></li>
-              <li><a class="dropdown-item" href="produtos.php">Produtos</a></li>
+              <li><a class="dropdown-item" href="categorias.php">Cargos</a></li>
+              <!-- depois podemos criar turnos.php seguindo o mesmo padrão de categorias -->
+              <!-- <li><a class="dropdown-item" href="turnos.php">Turnos de trabalho</a></li> -->
+              <li><a class="dropdown-item" href="produtos.php">Funcionários</a></li>
+              <!-- e futuramente um pontos.php para as batidas -->
             </ul>
           </li>
         </ul>
