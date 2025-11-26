@@ -39,11 +39,10 @@ if (!isset($_SESSION['acesso']))
               Cadastros
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdown2">
-              <li><a class="dropdown-item" href="categorias.php">Cargos</a></li>
-              <!-- depois podemos criar turnos.php seguindo o mesmo padrão de categorias -->
-              <!-- <li><a class="dropdown-item" href="turnos.php">Turnos de trabalho</a></li> -->
-              <li><a class="dropdown-item" href="produtos.php">Funcionários</a></li>
-              <!-- e futuramente um pontos.php para as batidas -->
+              <li><a class="dropdown-item" href="cargos.php">Cargos</a></li>
+              <li><a class="dropdown-item" href="turnos.php">Turnos de trabalho</a></li>
+              <li><a class="dropdown-item" href="funcionarios.php">Funcionários</a></li>
+              <li><a class="dropdown-item" href="pontos.php">Registro de ponto</a></li>
             </ul>
           </li>
         </ul>
