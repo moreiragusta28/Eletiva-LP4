@@ -1,58 +1,88 @@
 <?php
     require("cabecalho.php");
     require("conexao.php");
-    try{
-        $stmt = $pdo->query("SELECT * FROM categoria");
-        $dados = $stmt->fetchAll();
-    } catch(\Exception $e){
-        echo "Erro: ".$e->getMessage();
+
+    // Exclusão de cargo (se vier ?excluir=ID)
+    if (isset($_GET['excluir'])) {
+        $id = (int) $_GET['excluir'];
+        try {
+            $stmt = $pdo->prepare("DELETE FROM cargo WHERE cargo_id = ?");
+            if ($stmt->execute([$id])) {
+                header('location: cargos.php?excluir=true');
+                exit;
+            } else {
+                header('location: cargos.php?excluir=false');
+                exit;
+            }
+        } catch (Exception $e) {
+            echo "<p class='text-danger'>Erro ao excluir cargo: " . $e->getMessage() . "</p>";
+        }
     }
-    if (isset($_GET['cadastro']) && $_GET['cadastro']){
-        echo "<p class='text-success'>Cadastro realizado!</p>";
-    } else if (isset($_GET['cadastro']) && !$_GET['cadastro']){
-        echo "<p class='text-danger'>Erro ao cadastrar!</p>";
+
+    // Listagem de cargos
+    try {
+        $stmt = $pdo->query("SELECT * FROM cargo");
+        $cargos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "<p class='text-danger'>Erro ao consultar cargos: " . $e->getMessage() . "</p>";
     }
-    if (isset($_GET['editar']) && $_GET['editar']){
-        echo "<p class='text-success'>Registro editado!</p>";
-    } else if (isset($_GET['editar']) && !$_GET['editar']){
-        echo "<p class='text-danger'>Erro ao editar!</p>";
+
+    if (isset($_GET['cadastro'])) {
+        if ($_GET['cadastro'] == 'true') {
+            echo "<p class='text-success'>Cargo cadastrado com sucesso!</p>";
+        } else {
+            echo "<p class='text-danger'>Erro ao cadastrar cargo!</p>";
+        }
     }
-    if (isset($_GET['excluir']) && $_GET['excluir']){
-        echo "<p class='text-success'>Registro excluído!</p>";
-    } else if (isset($_GET['cadastro']) && !$_GET['cadastro']){
-        echo "<p class='text-danger'>Erro ao excluir!</p>";
+
+    if (isset($_GET['editar'])) {
+        if ($_GET['editar'] == 'true') {
+            echo "<p class='text-success'>Cargo editado com sucesso!</p>";
+        } else {
+            echo "<p class='text-danger'>Erro ao editar cargo!</p>";
+        }
+    }
+
+    if (isset($_GET['excluir'])) {
+        if ($_GET['excluir'] == 'true') {
+            echo "<p class='text-success'>Cargo excluído com sucesso!</p>";
+        } else if ($_GET['excluir'] == 'false') {
+            echo "<p class='text-danger'>Erro ao excluir cargo!</p>";
+        }
     }
 ?>
 
-<h2>Categorias</h2>
-<a href="nova_categoria.php" class="btn btn-success mb-3">Novo Registro</a>
-<table class="table table-hover table-striped">
+<h1>Cargos</h1>
+<a href="novo_cargo.php" class="btn btn-primary mb-3">Novo Cargo</a>
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nome</th>
+            <th>Nome do Cargo</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        <?php
-            foreach($dados as $d):
-        ?>
-        <tr>
-            <td><?= $d['id'] ?></td>
-            <td><?= $d['nome'] ?></td>
-            <td class="d-flex gap-2">
-                <a href="editar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
-                <a href="consultar_categoria.php?id=<?= $d['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
-            </td>
-        </tr>
-        <?php
-            endforeach;
-        ?>
+        <?php if (!empty($cargos)): ?>
+            <?php foreach ($cargos as $c): ?>
+                <tr>
+                    <td><?= $c['cargo_id'] ?></td>
+                    <td><?= $c['nome'] ?></td>
+                    <td class="d-flex gap-2">
+                        <a href="consultar_cargo.php?id=<?= $c['cargo_id'] ?>" class="btn btn-sm btn-info">Consultar</a>
+                        <a href="editar_cargo.php?id=<?= $c['cargo_id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="cargos.php?excluir=<?= $c['cargo_id'] ?>" class="btn btn-sm btn-danger"
+                           onclick="return confirm('Tem certeza que deseja excluir este cargo?');">
+                           Excluir
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </tbody>
 </table>
 
-
 <?php
-require("rodape.php");
+    require("rodape.php");
 ?>
