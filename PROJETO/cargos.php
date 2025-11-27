@@ -15,7 +15,14 @@
                 exit;
             }
         } catch (Exception $e) {
-            echo "<p class='text-danger'>Erro ao excluir cargo: " . $e->getMessage() . "</p>";
+            // 23000 = violação de integridade (chave estrangeira, etc.)
+            if ($e->getCode() == 23000) {
+                header('location: cargos.php?erro_dependencia=1');
+                exit;
+            } else {
+                header('location: cargos.php?excluir=false');
+                exit;
+            }
         }
     }
 
@@ -50,6 +57,12 @@
             echo "<p class='text-danger'>Erro ao excluir cargo!</p>";
         }
     }
+
+    if (isset($_GET['erro_dependencia']) && $_GET['erro_dependencia'] == '1') {
+        echo "<p class='text-danger'>
+                Não é possível excluir este cargo, pois existem funcionários vinculados a ele.
+              </p>";
+    }
 ?>
 
 <h1>Cargos</h1>
@@ -68,7 +81,7 @@
             <?php foreach ($cargos as $c): ?>
                 <tr>
                     <td><?= $c['cargo_id'] ?></td>
-                    <td><?= $c['nome'] ?></td>
+                    <td><?= htmlspecialchars($c['nome']) ?></td>
                     <td class="d-flex gap-2">
                         <a href="consultar_cargo.php?id=<?= $c['cargo_id'] ?>" class="btn btn-sm btn-info">Consultar</a>
                         <a href="editar_cargo.php?id=<?= $c['cargo_id'] ?>" class="btn btn-sm btn-warning">Editar</a>

@@ -16,7 +16,14 @@
                 exit;
             }
         } catch (Exception $e) {
-            echo "<p class='text-danger'>Erro ao excluir batida de ponto: " . $e->getMessage() . "</p>";
+            if ($e->getCode() == 23000) {
+                // Só por segurança, caso um dia haja dependência
+                header('location: pontos.php?erro_dependencia=1');
+                exit;
+            } else {
+                header('location: pontos.php?excluir=false');
+                exit;
+            }
         }
     }
 
@@ -50,6 +57,12 @@
         echo $_GET['excluir'] == 'true'
             ? "<p class='text-success'>Batida excluída com sucesso!</p>"
             : "<p class='text-danger'>Erro ao excluir batida!</p>";
+    }
+
+    if (isset($_GET['erro_dependencia']) && $_GET['erro_dependencia'] == '1') {
+        echo "<p class='text-danger'>
+                Não é possível excluir esta batida, pois existem dependências vinculadas a ela.
+              </p>";
     }
 ?>
 

@@ -60,8 +60,13 @@
     </div>
     <div class="mb-3">
         <label for="periodo" class="form-label">Período:</label>
-        <input type="text" id="periodo" name="periodo" class="form-control" required
-               value="<?= htmlspecialchars($turno['periodo']) ?>">
+        <select id="periodo" name="periodo" class="form-select" required>
+            <option value="Manha"     <?= $turno['periodo'] === 'Manha'     ? 'selected' : '' ?>>Manhã</option>
+            <option value="Tarde"     <?= $turno['periodo'] === 'Tarde'     ? 'selected' : '' ?>>Tarde</option>
+            <option value="Noite"     <?= $turno['periodo'] === 'Noite'     ? 'selected' : '' ?>>Noite</option>
+            <option value="Madrugada" <?= $turno['periodo'] === 'Madrugada' ? 'selected' : '' ?>>Madrugada</option>
+            <option value="Flexivel"  <?= $turno['periodo'] === 'Flexivel'  ? 'selected' : '' ?>>Flexível</option>
+        </select>
     </div>
     <div class="mb-3">
         <label for="hora_inicio" class="form-label">Hora de início:</label>

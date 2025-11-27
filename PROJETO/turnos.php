@@ -16,7 +16,13 @@
                 exit;
             }
         } catch (Exception $e) {
-            echo "<p class='text-danger'>Erro ao excluir turno: " . $e->getMessage() . "</p>";
+            if ($e->getCode() == 23000) {
+                header('location: turnos.php?erro_dependencia=1');
+                exit;
+            } else {
+                header('location: turnos.php?excluir=false');
+                exit;
+            }
         }
     }
 
@@ -44,6 +50,12 @@
         echo $_GET['excluir'] == 'true'
             ? "<p class='text-success'>Turno excluído com sucesso!</p>"
             : "<p class='text-danger'>Erro ao excluir turno!</p>";
+    }
+
+    if (isset($_GET['erro_dependencia']) && $_GET['erro_dependencia'] == '1') {
+        echo "<p class='text-danger'>
+                Não é possível excluir este turno, pois existem funcionários vinculados a ele.
+              </p>";
     }
 ?>
 

@@ -35,7 +35,14 @@
     </div>
     <div class="mb-3">
         <label for="periodo" class="form-label">Período:</label>
-        <input type="text" id="periodo" name="periodo" class="form-control" placeholder="Manhã, Tarde, Noite..." required>
+        <select id="periodo" name="periodo" class="form-select" required>
+            <option value="">Selecione...</option>
+            <option value="Manha">Manhã</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noite">Noite</option>
+            <option value="Madrugada">Madrugada</option>
+            <option value="Flexivel">Flexível</option>
+        </select>
     </div>
     <div class="mb-3">
         <label for="hora_inicio" class="form-label">Hora de início:</label>

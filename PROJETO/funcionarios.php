@@ -15,7 +15,13 @@
                 exit;
             }
         } catch (Exception $e) {
-            echo "<p class='text-danger'>Erro ao excluir funcionário: " . $e->getMessage() . "</p>";
+            if ($e->getCode() == 23000) {
+                header('location: funcionarios.php?erro_dependencia=1');
+                exit;
+            } else {
+                header('location: funcionarios.php?excluir=false');
+                exit;
+            }
         }
     }
 
@@ -56,6 +62,12 @@
         } else if ($_GET['excluir'] == 'false') {
             echo "<p class='text-danger'>Erro ao excluir funcionário!</p>";
         }
+    }
+
+    if (isset($_GET['erro_dependencia']) && $_GET['erro_dependencia'] == '1') {
+        echo "<p class='text-danger'>
+                Não é possível excluir este funcionário, pois existem registros de ponto vinculados a ele.
+              </p>";
     }
 ?>
 
